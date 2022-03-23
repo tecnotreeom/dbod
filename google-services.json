@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "37805666040",
+    "project_id": "dbod-tt",
+    "storage_bucket": "dbod-tt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37805666040:android:fb0023bd48f3b3bc85950d",
+        "android_client_info": {
+          "package_name": "com.omgupta.dbod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37805666040-n421qpi152bv34vjna304m18giljbbmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAy_UB-3H9Ah-7lemjJnnxDCbHg24MF5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37805666040-n421qpi152bv34vjna304m18giljbbmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

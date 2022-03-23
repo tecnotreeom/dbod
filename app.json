@@ -1,32 +1,44 @@
 {
-  "expo": {
-    "name": "dbod",
-    "slug": "dbod",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "dbod",
+		"slug": "dbod",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/appstore.png",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff",
+			"flex": 1
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.omgupta.dbod"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/playstore.png",
+				"backgroundColor": "#FFFFFF"
+			},
+			"package": "com.omgupta.dbod",
+			"useNextNotificationsApi": true,
+			"googleServicesFile": "./google-services.json"
+		},
+		"web": {
+			"favicon": "./assets/playstore.png"
+		},
+		"plugins": [
+			[
+				"expo-notifications",
+				{
+					"icon": "./assets/playstore.png",
+					"color": "#ffffff"
+				}
+			]
+		]
+	}
 }
