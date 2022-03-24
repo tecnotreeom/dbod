@@ -3,7 +3,7 @@ export const colors = {
 		primary: '#2182BD',
 		secondary: '#5282BD',
 		muted: '#C6DAF7',
-		loginBtm: '#28e3cf',
+		loginBtm: '#523DD5',
 	},
 	ui: {
 		primary: '#262626',

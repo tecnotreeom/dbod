@@ -19,10 +19,10 @@ export const AccountCover = styled.View`
 `;
 
 export const AccountContainer = styled.View`
-	background-color: rgba(52, 52, 52, 0.6);
-	padding: ${(props) => props.theme.space[4]};
-	margin-top: ${(props) => props.theme.space[2]};
-	border-radius: 20px;
+	flex: 1;
+	justify-content: center
+	padding-left: 20px;
+	padding-right: 20px;
 `;
 
 export const AuthButton = styled(Button).attrs({
@@ -31,9 +31,7 @@ export const AuthButton = styled(Button).attrs({
 	padding: ${(props) => props.theme.space[2]};
 `;
 
-export const AuthInput = styled(TextInput)`
-	width: 300px;
-`;
+export const AuthInput = styled(TextInput)``;
 
 export const Title = styled(Text)`
 	font-size: 30px;

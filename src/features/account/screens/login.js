@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
-
+import { View } from 'react-native';
 import {
 	AccountBackground,
 	AccountCover,
@@ -24,8 +24,8 @@ Notifications.setNotificationHandler({
 	}),
 });
 
-export const LoginScreen = ({ navigation }) => {
-	const [userName, setEmail] = useState('');
+export const Login = () => {
+	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 	const { onLogin, error, isLoading } = useContext(AuthenticationContext);
 	const [expoPushToken, setExpoPushToken] = useState('');
@@ -64,48 +64,64 @@ export const LoginScreen = ({ navigation }) => {
 		schedulePushNotification();
 	};
 	return (
-		
-		<AccountBackground>
-			<AccountCover />
-			{/* <Title>DCLM Logs To Go</Title> */}
+		<>
+			<BrandHeader />
 			<AccountContainer>
-				<AuthInput
-					label="UserName"
-					value={userName}
-					textContentType="username"
-					autoCapitalize="none"
-					onChangeText={(u) => setEmail(u)}
-				/>
-				<Spacer size="large">
-					<AuthInput
-						label="Password"
-						value={password}
-						textContentType="password"
-						secureTextEntry
-						autoCapitalize="none"
-						onChangeText={(p) => setPassword(p)}
-					/>
-				</Spacer>
-				{error && (
-					<ErrorContainer size="large">
-						<Text variant="error">{error}</Text>
-					</ErrorContainer>
-				)}
-				<Spacer size="large">
-					{!isLoading ? (
-						<AuthButton
-							icon="lock-open-outline"
-							mode="contained"
-							onPress={() => onLogin(userName, password, expoPushToken)}
-						>
-							Login
-						</AuthButton>
-					) : (
-						<ActivityIndicator animating={true} color={Colors.blue300} />
+				<View
+					style={{
+						flexDirection: 'column',
+						alignContent: 'center',
+						justifyContent: 'center',
+						flex: 1,
+					}}
+				>
+					<Title>Sign-In</Title>
+					<Text>Welcome to Tecnotree Digital World</Text>
+					<Spacer size="large">
+						<AuthInput
+							label="UserName"
+							value={userName}
+							textContentType="username"
+							autoCapitalize="none"
+							onChangeText={(u) => setUserName(u)}
+						/>
+					</Spacer>
+					<Spacer size="large">
+						<AuthInput
+							label="Password"
+							value={password}
+							textContentType="password"
+							secureTextEntry
+							autoCapitalize="none"
+							onChangeText={(p) => setPassword(p)}
+						/>
+					</Spacer>
+					{error && (
+						<ErrorContainer size="large">
+							<Text variant="error">{error}</Text>
+						</ErrorContainer>
 					)}
-				</Spacer>
+					<Spacer size="large">
+						{!isLoading ? (
+							<AuthButton
+								icon="lock-open-outline"
+								mode="contained"
+								onPress={() =>
+									onLogin(userName, password, expoPushToken)
+								}
+							>
+								Login
+							</AuthButton>
+						) : (
+							<ActivityIndicator
+								animating={true}
+								color={Colors.blue300}
+							/>
+						)}
+					</Spacer>
+				</View>
 			</AccountContainer>
-		</AccountBackground>
+		</>
 	);
 };
 

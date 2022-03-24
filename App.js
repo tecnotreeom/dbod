@@ -22,7 +22,7 @@ export default function App() {
 	if (!OswaldLoaded || !LatoLoaded) {
 		return null;
 	}
-	let bgColor = '#4933D3';
+	let bgColor = '#523DD5';
 	return (
 		<>
 			<ThemeProvider theme={theme}>

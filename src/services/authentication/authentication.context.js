@@ -5,6 +5,7 @@ export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
+	const [loginName, setLoginName] = useState('');
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [dashboard, setDashboard] = useState([]);
 	const onLogin = (userName, password, expoPushToken) => {
@@ -25,6 +26,7 @@ export const AuthenticationContextProvider = ({ children }) => {
 								icon: 'settings',
 							},
 						]);
+						setLoginName(authResult.userName);
 						setIsAuthenticated(true);
 						setIsLoading(false);
 					}
@@ -56,6 +58,7 @@ export const AuthenticationContextProvider = ({ children }) => {
 				isLoading,
 				error,
 				isAuthenticated,
+				loginName,
 			}}
 		>
 			{children}

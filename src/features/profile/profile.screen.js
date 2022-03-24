@@ -1,50 +1,53 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components/native';
 import { View, Button } from 'react-native';
-import { List, Avatar, Switch } from 'react-native-paper';
+import { List, Avatar, Switch, Colors } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Text } from '../../components/typography/text.component';
 import { Spacer } from '../../components/spacer/spacer.component';
 import { SafeArea } from '../../components/utility/safe-area.component';
 import { AuthenticationContext } from '../../services/authentication/authentication.context';
+import { capitalizeFirstLetter } from '../../utils/transform-util';
 const SettingsItem = styled(List.Item)`
-	padding: ${(props) => props.theme.space[3]};
+	padding: ${(props) => props.theme.space[2]};
 `;
 const AvatarContainer = styled.View`
 	align-items: center;
 `;
 export const ProfileScreen = () => {
-	const { onLogout } = useContext(AuthenticationContext);
+	const { onLogout, loginName } = useContext(AuthenticationContext);
 	const [isSwitchOn, setIsSwitchOn] = useState(false);
+	const [expanded, setExpanded] = React.useState(false);
+	const handlePress = () => setExpanded(!expanded);
 	const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+	const displayName = capitalizeFirstLetter(loginName);
 	return (
 		<SafeArea>
 			<AvatarContainer>
-				<Avatar.Icon size={64} icon="human" backgroundColor="#2182BD" />
+				<Avatar.Icon size={64} icon="human" backgroundColor="#523DD5" />
 				<Spacer position="top" size="large">
-					<Text variant="label">Om Gupta</Text>
+					<Text variant="label">{displayName}</Text>
 				</Spacer>
 			</AvatarContainer>
-			{/* <List.Section>
-				<SettingsItem
-					title="Logout"
-					left={(props) => (
-						<List.Icon {...props} color="black" icon="door" />
-					)}
-					onPress={onLogout}
-				/>
-			</List.Section> */}
-			{/* <LinearGradient
-				colors={['#a87f06', '#e2c102']}
-				start={{ x: 0.0, y: 1.25 }}
-				end={{ x: 1, y: 0.25 }}
-				style={{
-					flex: 2,
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'stretch',
-				}}
-			></LinearGradient> */}
+			<List.Section>
+				<List.Accordion
+					title="Check for updates"
+					left={(props) => <List.Icon {...props} icon="update" />}
+				>
+					{/* <List.Item title="First item" />
+					<List.Item title="Second item" /> */}
+				</List.Accordion>
+
+				<List.Accordion
+					title="Change Password"
+					left={(props) => <List.Icon {...props} icon="logout" />}
+					// expanded={expanded}
+					// onPress={handlePress}
+				>
+					{/* <List.Item title="First item" />
+					<List.Item title="Second item" /> */}
+				</List.Accordion>
+			</List.Section>
 			<View
 				style={{
 					marginLeft: 20,
@@ -62,10 +65,11 @@ export const ProfileScreen = () => {
 					bordered
 					light
 					style={{
-						borderColor: '#C9C9C9',
-						color: '#841584',
+						borderColor: '#523DD5',
+						color: '#523DD5',
 					}}
 					title="Logout"
+					icon="logout"
 					onPress={onLogout}
 				></Button>
 				<View

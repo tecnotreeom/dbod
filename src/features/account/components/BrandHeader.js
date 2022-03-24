@@ -7,15 +7,15 @@ const deviceHeight = Dimensions.get('window').height;
 import Constants from 'expo-constants';
 const headerHeight = 48;
 const StatusBarBackground = styled.View`
-	background: #4933d3;
+	background: #523dd5;
 	padding-top: ${Platform.OS === 'ios' ? Constants.statusBarHeight : 0}px;
 	height: ${Platform.OS === 'ios'
 		? Constants.statusBarHeight + headerHeight
 		: headerHeight}px;
 `;
-// import Logo from './logo'
+import Logo from '../components/logo';
 export const BrandHeader = ({ styles }) => {
-	let bgColor = '#4933D3';
+	let bgColor = '#523DD5';
 	return (
 		<>
 			<StatusBarBackground>
@@ -37,7 +37,7 @@ export const BrandHeader = ({ styles }) => {
 								marginTop: 180,
 							}}
 						>
-							{/* <Logo dimension={100} borderRequired={true} /> */}
+							<Logo dimension={100} borderRequired={true} />
 						</View>
 					</Svg>
 				</View>
