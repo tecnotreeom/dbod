@@ -9,6 +9,6 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-
+google-services.json:Zone.Identifier
 # macOS
 .DS_Store
