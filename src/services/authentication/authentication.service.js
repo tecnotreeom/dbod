@@ -1,7 +1,8 @@
 export const loginRequest = async (userName, password) => {
 	try {
+		//https://crm.mtnnigeria.net/dap-api/service-mgmt/api/dbod/v1/dbodLogin
 		const response = await fetch(
-			'https://crm.mtnnigeria.net/dap-api/service-mgmt/api/dbod/v1/dbodLogin',
+			'https://mybiz.mtn.com.gh/service-mgmt/api/dbod/v1/dbodLogin',
 			{
 				method: 'POST',
 				headers: {
@@ -23,9 +24,8 @@ export const loginRequest = async (userName, password) => {
 
 export const pushExpoToken = async (userName, expoToken) => {
 	try {
-		console.log(' hi i am push token call');
 		const response = await fetch(
-			'https://crm.mtnnigeria.net/dap-api/service-mgmt/api/dbod-mobile-app/v1/pushAppToken',
+			'https://mybiz.mtn.com.gh/service-mgmt/api/dbod-mobile-app/v1/pushAppToken',
 			{
 				method: 'POST',
 				headers: {

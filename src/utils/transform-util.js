@@ -33,12 +33,12 @@ export const iconTabRoute = ({ route }) => {
 			// You can return any component that you like here!
 			return <MaterialIcons name={iconName} size={size} color={color} />;
 		},
-		tabBarActiveTintColor: 'tomato',
+		// tabBarItemStyle: { backgroundColor: "#fff" },
+		// tabBarStyle: {backgroundColor: "transparent",
+		// margin:30,
+		// elevation: 30,},
+		tabBarActiveTintColor: '#523dd5',
 		tabBarInactiveTintColor: 'gray',
 	};
 };
-/**
- * @param {string} string
- */
-export const capitalizeFirstLetter = (string) =>
-	string.charAt(0).toUpperCase() + string.slice(1);
+

@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components/native';
-import { View, Button } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import { List, Avatar, Switch, Colors } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Text } from '../../components/typography/text.component';
 import { Spacer } from '../../components/spacer/spacer.component';
 import { SafeArea } from '../../components/utility/safe-area.component';
 import { AuthenticationContext } from '../../services/authentication/authentication.context';
-import { capitalizeFirstLetter } from '../../utils/transform-util';
+import { capitalizeFirstLetter } from '../../utils/util-service';
 const SettingsItem = styled(List.Item)`
 	padding: ${(props) => props.theme.space[2]};
 `;
@@ -60,14 +60,8 @@ export const ProfileScreen = () => {
 					bottom: 35,
 				}}
 			>
-				<Button
-					block
-					bordered
-					light
-					style={{
-						borderColor: '#523DD5',
-						color: '#523DD5',
-					}}
+				<Button					
+					color="#523DD5"
 					title="Logout"
 					icon="logout"
 					onPress={onLogout}
@@ -106,3 +100,22 @@ export const ProfileScreen = () => {
 		</SafeArea>
 	);
 };
+
+const styles = StyleSheet.create({
+	button: {
+	  alignItems: 'center',
+	  justifyContent: 'center',
+	  paddingVertical: 12,
+	  paddingHorizontal: 32,
+	  borderRadius: 4,
+	  elevation: 3,
+	  backgroundColor: 'black',
+	},
+	text: {
+	  fontSize: 16,
+	  lineHeight: 21,
+	  fontWeight: 'bold',
+	  letterSpacing: 0.25,
+	  color: 'white',
+	},
+  });
